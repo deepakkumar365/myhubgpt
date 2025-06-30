@@ -1,0 +1,4 @@
+[2025-05-28T10:09:45.730Z] fetchOData error: Invalid JSON response: ... | URL: https://devgthub.myhub.plus/odata/ShipmentList?$filter=ATD%20ne%20null%20and%20ATA%20eq%20null&$top=10&$skip=0&$count=true
+[2025-05-28T10:09:45.731Z] Tool: getShipmentList error: Failed to fetch OData: Invalid JSON response: ... | URL: https://devgthub.myhub.plus/odata/ShipmentList?$filter=ATD%20ne%20null%20and%20ATA%20eq%20null&$top=10&$skip=0&$count=true
+[2025-05-28T10:09:47.683Z] fetchOData error: Invalid JSON response: ... | URL: https://devgthub.myhub.plus/odata/ShipmentList?$filter=ATD%20ne%20null%20and%20ATA%20eq%20null&$top=10&$skip=0&$count=true
+[2025-05-28T10:09:47.683Z] Tool: getShipmentList error: Failed to fetch OData: Invalid JSON response: ... | URL: https://devgthub.myhub.plus/odata/ShipmentList?$filter=ATD%20ne%20null%20and%20ATA%20eq%20null&$top=10&$skip=0&$count=true

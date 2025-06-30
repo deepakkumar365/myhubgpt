@@ -1,0 +1,2 @@
+[2025-05-02T09:49:29.842Z] fetchOData error: Internal Server Error: The server encountered an error. | URL: https://devgthub.myhub.plus/odata/BookingList?$filter=contains(ShipmentNo%2C%20'SHP00167850')&$top=10&$skip=0&$count=true
+[2025-05-02T11:41:26.799Z] fetchOData error: Internal Server Error: The server encountered an error. | URL: https://devgthub.myhub.plus/odata/OrderList?$filter=Contains(BookingNos%2C%20'BRK00101872')&$top=10&$skip=0&$count=true
