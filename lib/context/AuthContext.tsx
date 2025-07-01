@@ -136,12 +136,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUserInfo(userData);
         setIsAuthenticated(true);
 
-        // Postgres Check if user exists in database and create if not found 
-        getUserFromAPI(userData.MailId).then((res) => {
+        let userMailId = userData.MailId?userData.MailId: userData.EmailId;
+        // Postgres Check if user exists in database and create if not found
+        getUserFromAPI(userMailId).then((res) => {
           if (res.length == 0) {
             // Generate a random password for the user since createUser requires email and password
             const randomPassword = Math.random().toString(36).substring(2, 15);
-            createUserFromAPI(userData.MailId, randomPassword).catch((error) => {
+            createUserFromAPI(userMailId, randomPassword).catch((error) => {
               console.error("Failed to create user:", error);
             });
           }
