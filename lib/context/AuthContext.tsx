@@ -38,13 +38,13 @@ const ALLOWED_ORIGINS = [
 async function getUserFromAPI(email: string) {
   try {
     const response = await fetch(`/api/user?email=${encodeURIComponent(email)}`);
-    
+
     if (!response.ok) {
       // Read the response text for error details before throwing
       const errorText = await response.text();
       throw new Error(`Failed to get user: ${response.status} ${response.statusText} - ${errorText}`);
     }
-    
+
     // Check if response has content before trying to parse JSON
     const contentType = response.headers.get('content-type');
     if (contentType && contentType.includes('application/json')) {
@@ -66,9 +66,9 @@ async function createUserFromAPI(email: string, password: string) {
       email: email,
       password: password,
     };
-    
+
     console.log('Creating user with payload:', { input, Action: 'CreateUser' });
-    
+
     const response = await fetch('/api/user', {
       method: 'POST',
       headers: {
@@ -76,13 +76,13 @@ async function createUserFromAPI(email: string, password: string) {
       },
       body: JSON.stringify({ input, Action: 'CreateUser' }),
     });
-    
+
     console.log('Response status:', response.status);
     console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-    
+
     // Clone the response so we can read it multiple times if needed
     const responseClone = response.clone();
-    
+
     if (!response.ok) {
       let errorText;
       try {
@@ -92,7 +92,7 @@ async function createUserFromAPI(email: string, password: string) {
       }
       throw new Error(`Failed to create user: ${response.status} ${response.statusText} - ${errorText}`);
     }
-    
+
     // Check if response has content before trying to parse JSON
     const contentType = response.headers.get('content-type');
     if (contentType && contentType.includes('application/json')) {
@@ -135,9 +135,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const userData = JSON.parse(decrypted);
         setUserInfo(userData);
         setIsAuthenticated(true);
-
-        let userMailId = userData.MailId?userData.MailId: userData.EmailId;
-        // Postgres Check if user exists in database and create if not found
+        let userMailId = userData.MailId ? userData.MailId : userData.EmailId ? userData.EmailId : userData.UserId;
+        // Postgres Check if user exists in database and create if not found 
         getUserFromAPI(userMailId).then((res) => {
           if (res.length == 0) {
             // Generate a random password for the user since createUser requires email and password

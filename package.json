@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev -H dev.myhub.plus -p 8080",
     "build": "next build",
-    "start": "next start -p 8080",
-    "start:prod": "next start -H 0.0.0.0 -p 8080",
+    "start": "next start",
+    "start:prod": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx lib/db/migrate.ts",
