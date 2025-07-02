@@ -162,7 +162,9 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
           }
         });
         // Reset pointer events if needed
-        document.body.style.removeProperty('pointer-events');
+        setTimeout(() => {
+          document.body.style.removeProperty('pointer-events');
+        },100);        
         return 'Chat deleted successfully';
       },
       error: 'Failed to delete chat',
